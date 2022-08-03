@@ -5,7 +5,7 @@ from .models import *
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
-        fields = ['id', 'title', 'description']
+        fields = '__all__'
 
 
 class TagSerializer(serializers.ModelSerializer):
