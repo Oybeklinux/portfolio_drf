@@ -33,7 +33,7 @@ class Skill(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     created = models.DateField(auto_now_add=True)
-    user = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
+    user = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, related_name="user_skills")
 
     def __str__(self):
         return f"{self.name}"
@@ -50,7 +50,7 @@ class Review(models.Model):
 
 
 class Tag(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     created = models.DateField(auto_now_add=True)
 
     def __str__(self):
