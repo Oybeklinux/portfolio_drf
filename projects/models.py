@@ -5,17 +5,22 @@ from users.models import Profile
 class Project(models.Model):
     title = models.CharField(max_length=100)  # Majburiy
     description = models.TextField(blank=True, null=True)  # Majburiy emas
-    image = models.ImageField(upload_to='projects', default='projects/empty.png')
-    demo_link = models.CharField(max_length=200, blank=True, null=True)
-    source_code = models.CharField(max_length=200, blank=True, null=True)
-    vote_count = models.IntegerField(default=0)
-    vote_ratio = models.IntegerField(default=0)
-    created = models.DateField(auto_now_add=True)
-    user = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
-    tag = models.ManyToManyField('Tag', blank=True, related_name="project_tag")
+    image = models.ImageField(upload_to='projects', default='projects/empty.png') # Majburiy emas
+    demo_link = models.CharField(max_length=200, blank=True, null=True) # Majburiy emas
+    source_code = models.CharField(max_length=200, blank=True, null=True) # Majburiy emas
+    vote_count = models.IntegerField(default=0) # Majburiy emas
+    vote_ratio = models.IntegerField(default=0) # Majburiy emas
+    created = models.DateField(auto_now_add=True) # Majburiy emas
+    user = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True) # Majburiy emas
+    tag = models.ManyToManyField('Tag', blank=True, related_name="project_tag") # Majburiy emas
 
     def __str__(self):
         return f"{self.title}"
+
+
+class Testing(models.Model):
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
+    name = models.CharField(max_length=100)
 
 
 class Message(models.Model):
