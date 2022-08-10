@@ -11,16 +11,11 @@ class Project(models.Model):
     vote_count = models.IntegerField(default=0) # Majburiy emas
     vote_ratio = models.IntegerField(default=0) # Majburiy emas
     created = models.DateField(auto_now_add=True) # Majburiy emas
-    user = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True) # Majburiy emas
+    user = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, related_name="projects") # Majburiy emas
     tag = models.ManyToManyField('Tag', blank=True, related_name="project_tag") # Majburiy emas
 
     def __str__(self):
         return f"{self.title}"
-
-
-class Testing(models.Model):
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
-    name = models.CharField(max_length=100)
 
 
 class Message(models.Model):

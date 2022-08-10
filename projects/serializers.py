@@ -8,11 +8,6 @@ class ProjectSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class TestingSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Testing
-        fields = '__all__'
-
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag

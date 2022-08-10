@@ -4,11 +4,8 @@ from .views import *
 from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
-router.register('projects', ProjectViewSet)
+router.register('users', UserView)
 
 urlpatterns = [
     path('', include(router.urls))
-    # path('projects/', Projects.as_view()),
-    # path('projects/<int:pk>/', ProjectDetail.as_view()),
-
 ]
